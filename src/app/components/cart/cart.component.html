@@ -1,0 +1,37 @@
+<h3>Cart</h3>
+
+<p-button
+  label="Clear cart"
+  styleClass="p-button-secondary"
+  (click)="clearCart()"
+></p-button>
+
+<a [routerLink]="['/shipping']">
+  <p-button label="View shipping prices" styleClass="p-button-info"></p-button>
+</a>
+
+<div *ngFor="let item of items">
+  <span>{{ item.name }} | {{ item.price | currency }}</span>
+  <p-button
+    icon="pi pi-times"
+    styleClass="p-button-danger"
+    (click)="removeFromCart(item)"
+  ></p-button>
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <h4>Put your information below</h4>
+  <div class="p-float-label">
+    <input type="text" pInputText id="name" formControlName="name" />
+    <label htmlFor="name">Name</label>
+  </div>
+  <div class="p-float-label">
+    <input type="text" pInputText id="address" formControlName="address" />
+    <label htmlFor="address">Address</label>
+  </div>
+  <p-button
+    label="Purchase"
+    styleClass="p-button-help"
+    type="submit"></p-button>
+</form>
+<p-toast></p-toast>

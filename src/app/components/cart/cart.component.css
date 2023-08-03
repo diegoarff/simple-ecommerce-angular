@@ -1,0 +1,17 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+form {
+  margin-top: 1rem;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h4 {
+  margin: 0;
+}
